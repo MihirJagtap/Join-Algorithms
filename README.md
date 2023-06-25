@@ -1,4 +1,4 @@
-# CS 564 Project 3: Join Algorithms
+# CS 564: Join Algorithms
 
 The join is a fundamental operation in relational data processing that finds matching rows between two tables. In this project, you will implement, test, and benchmark a disk-based join algorithm. Your goal is to efficiently use memory and disk resources to return the answer to the following query.
 
@@ -118,7 +118,7 @@ git clone URL
 Navigate into the project directory.
 
 ```bash
-cd project-3
+cd Join-Algorithms
 ```
 
 Create and navigate into a build directory.
@@ -153,24 +153,10 @@ To measure peak heap memory usage, run the provided script. This will only work 
 
 ## Developing
 
-If you decide to host your code on GitHub, **use a private repository**. Points may be deducted if you use a public repository.
-
 You may not create, move, or delete any files or directories, with the exception of the build directory. The only files you may modify are `src/join.cpp` and `src/test/test_join.cpp`.
 
 ### Tests
 
 Tests are located in the subdirectory `src/test`. Tests for correctness and I/O cost of your implementation can be found in `src/test/test_join.cpp`. You are free to add any additional tests to this file; however, it will be overwritten with the original when we grade your submission. Passing these tests will account for the majority of your project grade. You need not worry about `src/test/test_file.cpp`.
 
-### Style
-
-You are expected to develop your code using good C++ style. You don't have to follow any specific convention, but ensure that your code is consistent, organized, clear, and well-documented.
-
-## Leaderboard
-
-Within each join algorithm (BNLJ, SMJ, HJ), the group with the fastest submission will receive 5 bonus points for this project. The group with the fastest overall submission (regardless of algorithm) will receive an additional 5 bonus points. Thus, you have the opportunity to earn up to 10 bonus points for this project. To be considered for the leaderboard, your implementation must be correct and satisfy the constraints on I/O cost and peak heap memory usage. Late submissions will not be considered.
-
-To evaluate submissions, we will run your code repeatedly and compute the mean latency. If there are extremely close ties, we may award bonus points to multiple groups. In the performance evaluation database, `R` and `S` will have 100,000 pages each. The buffer will have 1000 frames.
-
-## Deliverables
-
-Submit a zipped archive (`.zip`) of the top-level project directory to Canvas. Do not include build files in your submission. There should only be one submission per group. Points may be deducted if you do not follow these instructions.
+In the performance evaluation database, `R` and `S` will have 100,000 pages each. The buffer will have 1000 frames.
