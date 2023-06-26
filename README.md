@@ -1,4 +1,4 @@
-# CS 564: Join Algorithms
+# Join Algorithms
 
 The join is a fundamental operation in relational data processing that finds matching rows between two tables. In this project, you will implement, test, and benchmark a disk-based join algorithm. Your goal is to efficiently use memory and disk resources to return the answer to the following query.
 
@@ -10,7 +10,7 @@ WHERE R.a = S.a;
 
 ## Algorithms
 
-You will implement **one of three** disk-based join algorithms: block nested loop join (BNLJ), sort-merge join (SMJ), and hash join (HJ). Sketches of the algorithms are provided below. Please refer to the lecture slides and the textbook for more relevant information on the algorithms. If you choose to implement SMJ or HJ, you should implement the two-pass variant of the algorithm.
+You will implement disk-based join algorithms: block nested loop join (BNLJ). Sketch of the algorithm is provided below.
 
 ### Sketches
 
@@ -21,26 +21,9 @@ You will implement **one of three** disk-based join algorithms: block nested loo
 		- For each tuple $r$ in $R_i$:
 			- If $r.a = s.a$ then output $(r.b, s.b)$.
 
-#### Sort-merge join (SMJ)
-
-- For each block $R_i$ of $B$ pages in $R$, sort $R_i$ by $a$ and write to disk.
-- For each block $S_i$ of $B$ pages in $S$, sort $S_i$ by $a$ and write to disk.
-- Repeat while there is still input:
-	- Find the first tuples $r$ and $s$ such that $r.a = s.a$, advance the cursors pointing to $r$ and $s$, and output $(r.b, s.b)$.
-
-#### Hash join (HJ)
-
-- Partition $R$ using hash function $h_1$ and write partitions to disk.
-- Partition $S$ using hash function $h_1$ and write partitions to disk.
-- For each partition $(R_i, S_i)$:
-	- For each tuple $r$ in $R_i$:
-		- Insert $r$ into the hash table using hash function $h_2 \neq h_1$.
-	- For each tuple $s$ in $S_i$:
-		- Probe the hash table with $s$ using hash function $h_2 \neq h_1$. If $r.a = s.a$ then output $(r.b, s.b)$.
-
 ### Modifications
 
-To an extent, you are free to make minor modifications to the algorithm to improve performance. However, your algorithm must be clearly recognizable as a variant of the original. For BNLJ, your algorithm must compute the join with a block nested loop structure. For SMJ, your algorithm must compute the join by sorting and merging. For HJ, your algorithm must compute the join by partitioning and hashing. In addition, your algorithm must be single-threaded.
+To an extent, you are free to make minor modifications to the algorithm to improve performance. However, your algorithm must be clearly recognizable as a variant of the original. For BNLJ, your algorithm must compute the join with a block nested loop structure.
 
 ## Implementation
 
